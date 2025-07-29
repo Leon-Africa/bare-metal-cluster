@@ -13,6 +13,7 @@ This project serves as a reference implementation, designed to be a solid founda
 
 ### Requirements:
 - [kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
+- [kubectl](https://kubernetes.io/docs/reference/kubectl/)
 - [helm](https://helm.sh/docs/intro/install/)
 - [cilium](https://github.com/cilium/cilium-cli)
 - [flux](https://fluxcd.io/flux/cmd/)

@@ -4,6 +4,31 @@ set -e
 KIND_CLUSTER_NAME="kind"
 KIND_CONFIG="cluster/kind-config.yaml"
 
+check_dependencies() {
+    local dependencies=(kind kubectl helm hubble flux cilium)
+    local missing=()
+
+    for dep in "${dependencies[@]}"; do
+        if ! command -v "$dep" >/dev/null 2>&1; then
+            missing+=("$dep")
+        fi
+    done
+
+    if [ ${#missing[@]} -eq 0 ]; then
+        echo "All required dependencies are installed."
+        return 0
+    else
+        echo "Missing dependencies - to continue please install:"
+        for dep in "${missing[@]}"; do
+            echo "  - $dep"
+        done
+        return 1
+    fi
+}
+
+
+check_dependencies
+
 if [ -f .env ]; then
   echo "Loading environment variables from .env"
   export $(grep -v '^#' .env | xargs)
