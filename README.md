@@ -12,11 +12,11 @@ This repository contains a production-grade example of a Kubernetes cluster setu
 This project serves as a reference implementation, designed to be a solid foundation to build production-ready Kubernetes environments.
 
 ### Requirements:
-- kind
-- helm
-- cilium cli
-- flux cli
-- hubble cli
+- [kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
+- [helm](https://helm.sh/docs/intro/install/)
+- [cilium](https://github.com/cilium/cilium-cli)
+- [flux](https://fluxcd.io/flux/cmd/)
+- [hubble](https://docs.cilium.io/en/stable/observability/hubble/hubble-cli/)
 
 ### Usage
 ````
