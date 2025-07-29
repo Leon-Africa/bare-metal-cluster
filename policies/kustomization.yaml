@@ -1,0 +1,7 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - default-policy.yaml
+  - prod/allow-external-to-traefik.yaml
+  - prod/echo/allow-traefik-to-echo.yaml
+  

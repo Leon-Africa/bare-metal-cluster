@@ -1,0 +1,29 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: traefik
+  namespace: prod
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: traefik
+      version: ">=10.0.0 <11.0.0"
+      sourceRef:
+        kind: HelmRepository
+        name: traefik
+        namespace: flux-system
+  values:
+    ingressClass:
+      enabled: true
+      isDefaultClass: true
+    service:
+      type: NodePort
+      ports:
+        web:
+          port: 80
+          targetPort: 80
+          nodePort: 30080
+    ingressRoute:
+      dashboard:
+        enabled: true

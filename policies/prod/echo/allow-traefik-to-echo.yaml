@@ -1,0 +1,13 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-traefik-to-echo
+  namespace: prod
+spec:
+  endpointSelector:
+    matchLabels:
+      app: echo-server
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        app.kubernetes.io/name: traefik
